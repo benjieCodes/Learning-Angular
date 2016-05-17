@@ -1,10 +1,14 @@
 function HomeController ($http, $scope, URL) {
+
   $scope.name = 'Benjie Songsong';
-  $http.get('');
-  console.log(URL);
 
   $scope.addPet = function (petObject) {
-    console.log(petObject);
+
+    $http.post(URL, petObject).then(function (res) {
+      console.log(res);
+      $scope.pet = {};
+    });
+
   }
 }
 
